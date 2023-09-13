@@ -1,13 +1,13 @@
-package tacos;
+package food;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TacoCloudApplication {
+public class FoodOnlineApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TacoCloudApplication.class, args);
+		SpringApplication.run(FoodOnlineApplication.class, args);
 	}
 
 }
