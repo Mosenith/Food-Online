@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Food Online</title>
+</head>
+<body>
+  <h1>Pick Your Food</h1>
+  <img th:src="@{/images/taco-cloud.png}" width="250" height="200"/>
+
+  <form method="post" th:object="${design}">
+    <div class="grid">
+      <div class="ingredient-group" id="asian">
+        <h3>Asian Cuisine</h3>
+        <div th:each="menu : ${asians}">
+          <input name="menu" type="checkbox" th:value="${menu.id}"/>
+          <span th:text="${menu.name}"></span><br/>
+        </div>
+      </div>
+
+      <div class="ingredient-group" id="fastFoods">
+        <h3>Fast Foods</h3>
+        <div th:each="menu : ${fastFoods}">
+          <input name="menu" type="checkbox" th:value="${menu.id}"/>
+          <span th:text="${menu.name}"></span><br/>
+        </div>
+      </div>
+
+      <div class="ingredient-group" id="french">
+        <h3>French Cuisine</h3>
+        <div th:each="menu : ${french}">
+          <input name="menu" type="checkbox" th:value="${menu.id}"/>
+          <span th:text="${menu.name}"></span><br/>
+        </div>
+      </div>
+
+      <div class="ingredient-group" id="italian">
+        <h3>Italian Cuisine</h3>
+        <div th:each="menu : ${italian}">
+          <input name="menu" type="checkbox" th:value="${menu.id}"/>
+          <span th:text="${menu.name}"></span><br/>
+        </div>
+      </div>
+
+      <div class="ingredient-group" id="japanese">
+        <h3>Japanese Cuisine</h3>
+        <div th:each="menu : ${japanese}">
+          <input name="menu" type="checkbox" th:value="${menu.id}"/>
+          <span th:text="${menu.name}"></span><br/>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3>Choose Your Cuisine Foods</h3>
+      <input type="text" th:field="*{id}">
+      <button>Submit Your Order</button>
+    </div>
+  </form>
+</body>
+</html>
