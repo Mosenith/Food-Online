@@ -1,0 +1,47 @@
+**** Food ****
+
+CREATE TABLE IF NOT EXISTS Food (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  createdAt TIMESTAMP NOT NULL
+);
+
+**** Menu ****
+
+create table if not exists Menu (
+  id varchar(10) not null,
+  name varchar(25) not null,
+  type varchar(25) not null
+);
+
+**** Food_Menus ****
+
+CREATE TABLE Food_Menus (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  food_id INT NOT NULL REFERENCES Food (id),
+  menu_id VARCHAR(10) NOT NULL REFERENCES Menu (id)
+);
+
+
+**** Food_Order ****
+
+create table if not exists Food_Order (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+    deliveryName varchar(50) not null,
+    deliveryStreet varchar(50) not null,
+    deliveryCity varchar(50) not null,
+    deliveryState varchar(2) not null,
+    deliveryZip varchar(10) not null,
+    ccNumber varchar(16) not null,
+    ccExpiration varchar(5) not null,
+    ccCVV varchar(3) not null,
+    placedAt timestamp not null
+);
+
+**** Food_Order_Foods  ****
+
+create table if not exists Food_Order_Foods (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+  foodOrder INT not null REFERENCES Food_Order (id),
+  food bigint not null REFERENCES Food (id)
+);
