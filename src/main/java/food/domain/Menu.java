@@ -1,14 +1,19 @@
 package food.domain;
 
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import lombok.*;
 
 @Data
 @RequiredArgsConstructor
+@AllArgsConstructor
+@Entity
 public class Menu {
-    private final String id;
-    private final String name;
-    private final Type type;
+    @Id
+    private String id;
+    private String name;
+    private Type type;
+
     public static enum Type {
         FAST_FOOD, ASIAN, JAPANESE, WESTERN, FRENCH, ITALIAN
     }

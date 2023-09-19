@@ -1,22 +1,33 @@
 package food.domain;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
-@NoArgsConstructor
+@Entity
 public class Food {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @NotNull
+    @Size(min = 5, message = "Name must have at least 5 characters")
+    private String name;
 
     private Date createdAt;
 
-//    @NotNull
-//    @Size(min = 5, message = "Name must have at least 5 characters")
-//    private String name;
-//
-//    @Size(min = 1, message = "You must choose at least 1 menu")
-//    private List<Cuisine> types;
+    @ManyToMany(targetEntity = Menu.class)
+    @Size(min = 1, message = "You must choose at least 1 menu")
+    private List<Menu> types;
+
+    @PrePersist
+    void createdAt() {
+        this.createdAt = new Date();
+    }
+
 }
