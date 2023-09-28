@@ -25,7 +25,7 @@ public class DesignFoodController {
         List<Menu> menus = Arrays.asList(
                 new Menu("PH", "Pho", Menu.Type.ASIAN),
                 new Menu("PT", "Pad Thai", Menu.Type.ASIAN),
-                new Menu("PZ", "Ham Burger", Menu.Type.FAST_FOOD),
+                new Menu("HB", "Ham Burger", Menu.Type.FAST_FOOD),
                 new Menu("PZ", "Pizza", Menu.Type.FAST_FOOD),
                 new Menu("CS", "Croissant", Menu.Type.FRENCH),
                 new Menu("MC", "Macaron", Menu.Type.FRENCH),

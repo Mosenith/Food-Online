@@ -23,7 +23,7 @@ public class Food {
 
     @ManyToMany(targetEntity = Menu.class)
     @Size(min = 1, message = "You must choose at least 1 menu")
-    private List<Menu> types;
+    private List<Menu> menu;
 
     @PrePersist
     void createdAt() {

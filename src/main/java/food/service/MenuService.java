@@ -33,4 +33,8 @@ public class MenuService {
         menuRepository.save(menu);
         return menu;
     }
+
+    public void saveCuisine(Menu menu) {
+        menuRepository.save(menu);
+    }
 }
